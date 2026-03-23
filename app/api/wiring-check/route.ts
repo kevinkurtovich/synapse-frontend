@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
+
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   const results: Record<string, string> = {};
 
   // Check Supabase connection (frontend anon key)
   try {
-    const { error } = await supabase.from("persona").select("id").limit(1);
+    const { error } = await getSupabase().from("persona").select("id").limit(1);
     results.supabase = error ? `FAIL: ${error.message}` : "OK";
   } catch (e: unknown) {
     results.supabase = `FAIL: ${e instanceof Error ? e.message : "unknown"}`;
