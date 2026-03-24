@@ -1,6 +1,5 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { AuthGate } from '../../../components/molecules/AuthGate';
 import { CreateSnapshotForm } from '../../../components/organisms/CreateSnapshotForm';
 
 export default function NewSnapshotPage() {
@@ -11,11 +10,9 @@ export default function NewSnapshotPage() {
   }
 
   return (
-    <AuthGate>
-      <div className="new-snapshot-page">
-        <h1 className="new-snapshot-page__title">New snapshot</h1>
-        <CreateSnapshotForm onCreated={handleCreated} />
-      </div>
-    </AuthGate>
+    <div className="new-snapshot-page">
+      <h1 className="new-snapshot-page__title">New snapshot</h1>
+      <CreateSnapshotForm onCreated={handleCreated} />
+    </div>
   );
 }

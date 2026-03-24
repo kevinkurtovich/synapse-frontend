@@ -1,0 +1,66 @@
+/* ============================================================
+   App Shell layout (FEAT-0009)
+   ============================================================ */
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-shell__content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ============================================================
+   Sidebar molecule (FEAT-0009)
+   ============================================================ */
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-5) 0;
+}
+
+.sidebar__brand {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  padding: 0 var(--s-5);
+  margin-bottom: var(--s-6);
+  letter-spacing: 0.02em;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  padding: var(--s-2) var(--s-5);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.sidebar__link:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.sidebar__link--active {
+  color: var(--text-primary);
+  border-left-color: var(--brand);
+}

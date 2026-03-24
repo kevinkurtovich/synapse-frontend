@@ -1,0 +1,128 @@
+/* ============================================================
+   ManualWizard organism (FEAT-0009)
+   ============================================================ */
+
+.wizard {
+  padding: var(--s-6);
+  max-width: 600px;
+}
+
+.wizard__indicator {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--s-5);
+}
+
+.wizard__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.wizard__step-title {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.wizard__step-description {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.wizard__summary-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-md);
+  padding: var(--s-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.wizard__summary-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.wizard__summary-value {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  margin: 0;
+  word-break: break-word;
+}
+
+.wizard__summary-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.wizard__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.wizard__nav-primary {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--accent);
+  color: var(--bg-base);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: var(--s-2) var(--s-5);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: opacity 0.15s ease;
+}
+
+.wizard__nav-primary:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.wizard__nav-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.wizard__nav-back {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  background: none;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-sm);
+  padding: var(--s-2) var(--s-5);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.wizard__nav-back:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.wizard__error {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--danger);
+  margin: 0;
+}
