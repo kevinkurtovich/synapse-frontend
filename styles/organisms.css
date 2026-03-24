@@ -1,0 +1,111 @@
+/* Organism-level component styles — all values via var(--token) */
+
+/* SnapshotDetail */
+.snapshot-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.snapshot-detail__header {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+
+.snapshot-detail__persona-name {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.snapshot-detail__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.snapshot-detail__profile-select {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-sm);
+  padding: var(--s-2) var(--s-3);
+  appearance: auto;
+}
+
+.snapshot-detail__traits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-4);
+}
+
+@media (min-width: 768px) {
+  .snapshot-detail__traits-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.snapshot-detail__summary {
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.6;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  white-space: pre-wrap;
+}
+
+/* IdentityCheckResult */
+.identity-check-result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.identity-check-result__back {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.identity-check-result__back:hover {
+  color: var(--text-primary);
+}
+
+.identity-check-result__meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+
+.identity-check-result__probes-header {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.identity-check-result__probes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}

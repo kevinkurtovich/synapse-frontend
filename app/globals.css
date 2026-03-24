@@ -1,26 +1,9 @@
-@import "tailwindcss";
+/* Synapse Design System — Token Foundation */
+/* Source of truth: kos/design/tokens/synapse-tokens.css */
+/* This file imports the distribution copy only. Do not add values here. */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap');
+@import '../styles/synapse-tokens.css';
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* All base reset is defined in synapse-tokens.css (body styles). */
+/* No additional global styles. All component styles live in styles/*.css. */

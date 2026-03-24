@@ -1,0 +1,119 @@
+/* ═══════════════════════════════════════════════════════════════
+   SYNAPSE DESIGN SYSTEM — TOKEN LAYER  v2
+   Import this file once at the root of your project.
+   e.g.  @import './synapse-tokens.css';  or link in index.html.
+   Also import IBM Plex fonts:
+     https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500
+       &family=IBM+Plex+Sans:wght@400;500&display=swap
+═══════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── Brand / Accent ───────────────────────────────────── */
+  --accent:             #00D0FF; /* canonical reference name  */
+  --brand:              #00D0FF; /* alias used in components  */
+  --brand-dim:          rgba(0,208,255,0.10);
+  --brand-border:       rgba(0,208,255,0.22);
+
+  /* ── Backgrounds (5-level elevation) ─────────────────── */
+  --bg-base:            #0b0b0b;  /* page / outermost          */
+  --bg-surface:         #111111;  /* sidebar, panel shells     */
+  --bg-raised:          #171717;  /* cards, table rows         */
+  --bg-elevated:        #1c1c1c;  /* wells inside cards        */
+  --bg-hover:           #212121;  /* interactive hover         */
+  --bg-input:           #161616;  /* form inputs               */
+
+  /* ── Borders ─────────────────────────────────────────── */
+  --border-subtle:      rgba(255,255,255,0.055); /* dividers       */
+  --border-default:     rgba(255,255,255,0.095); /* card outlines  */
+  --border-strong:      rgba(255,255,255,0.160); /* focus, markers */
+
+  /* ── Text ────────────────────────────────────────────── */
+  --text-primary:       #edeae4;
+  --text-secondary:     #888582;
+  --text-muted:         #484643;
+  --text-label:         #565350;
+
+  /* ── Semantic Status ─────────────────────────────────── */
+  --ok:                 #3db87a;
+  --ok-dim:             rgba(61,184,122,0.11);
+  --ok-border:          rgba(61,184,122,0.22);
+
+  --warn:               #e8a020;
+  --warn-dim:           rgba(232,160,32,0.11);
+  --warn-border:        rgba(232,160,32,0.22);
+
+  --danger:             #e03a2f;
+  --danger-dim:         rgba(224,58,47,0.11);
+  --danger-border:      rgba(224,58,47,0.22);
+
+  --info:               #3d8bde;
+  --info-dim:           rgba(61,139,222,0.11);
+  --info-border:        rgba(61,139,222,0.22);
+
+  /* ── V2 · Warm Zone ──────────────────────────────────── */
+  --warm-base:          #1a1510;          /* warm card surface          */
+  --warm-accent:        #c8924a;          /* personality signal only    */
+  --warm-accent-dim:    rgba(200,146,74,0.13);
+  --warm-accent-border: rgba(200,146,74,0.24);
+
+  /* ── V2 · Temporal / Delta ───────────────────────────── */
+  --delta-pos:          #3db87a;   /* positive trend               */
+  --delta-neg:          #e03a2f;   /* negative trend               */
+  --delta-neutral:      #888582;   /* flat / no change             */
+
+  /* ── Typography ─────────────────────────────────────── */
+  --font-mono:          'IBM Plex Mono', monospace;
+  --font-sans:          'IBM Plex Sans', sans-serif;
+
+  /* ── Liquid Glass ────────────────────────────────────────── */
+  /* Use only on: nav bar, modals, command palette, toasts, tooltips */
+  --glass-border:       rgba(255,255,255,0.10);   /* edge highlight    */
+  --glass-bg-dim:       rgba(255,255,255,0.04);   /* glass input fill  */
+  /* Blur scale (low → high elevation) */
+  /* tooltip: blur(14px)  toast: blur(18px)  nav: blur(20px)  modal: blur(28px)  palette: blur(36px) */
+
+  /* ── Interactive Dot Grid — glowColor hex map ───────────── */
+  /*
+   * DotGrid.glowColor must be a hex string (not a var()) because the
+   * canvas renderer parses it to [r,g,b] integers for rgba() calls.
+   * Map design tokens to the hex values below:
+   *
+   *   --brand / --accent  →  #00D0FF
+   *   --ok                →  #3db87a
+   *   --warn              →  #e8a020
+   *   --danger            →  #e03a2f
+   *   --info              →  #3d8bde
+   *   --warm-accent       →  #c8924a
+   *
+   * These are the same hex values defined earlier in this file.
+   * Do not use custom colours — always map from this list.
+   */
+
+  /* ── Border Radius ───────────────────────────────────── */
+  --r-xs:   3px;
+  --r-sm:   4px;
+  --r-md:   6px;
+  --r-lg:   10px;
+  --r-xl:   14px;
+
+  /* ── Spacing Scale ───────────────────────────────────── */
+  --s-1:    4px;
+  --s-2:    8px;
+  --s-3:    12px;
+  --s-4:    16px;
+  --s-5:    24px;
+  --s-6:    32px;
+  --s-7:    40px;
+  --s-8:    56px;
+}
+
+/* ── Base reset (apply once at root) ─────────────────────── */
+body {
+  background:               var(--bg-base);
+  color:                    var(--text-primary);
+  font-family:              var(--font-sans);
+  font-size:                13px;
+  line-height:              1.5;
+  -webkit-font-smoothing:   antialiased;
+}

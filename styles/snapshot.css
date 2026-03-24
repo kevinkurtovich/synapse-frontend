@@ -1,0 +1,23 @@
+/* Snapshot Detail page layout — all values via var(--token) */
+
+.snapshot-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--s-6) var(--s-5);
+}
+
+.snapshot-page__loading {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: var(--s-8) 0;
+  text-align: center;
+}
+
+.snapshot-page__error {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--danger);
+  padding: var(--s-8) 0;
+  text-align: center;
+}

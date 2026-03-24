@@ -1,0 +1,66 @@
+/* Atom-level component styles — all values via var(--token) */
+
+/* ValidationStatusBadge */
+.validation-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--r-sm);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.validation-badge--pass {
+  color: var(--ok);
+  background: var(--ok-dim);
+  border-color: var(--ok-border);
+}
+
+.validation-badge--fail {
+  color: var(--danger);
+  background: var(--danger-dim);
+  border-color: var(--danger-border);
+}
+
+.validation-badge--no-runs {
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border-color: var(--border-subtle);
+}
+
+/* RunIdentityCheckButton */
+.run-check-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--r-md);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  border: 1px solid var(--brand-border);
+  background: var(--brand-dim);
+  color: var(--brand);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.run-check-btn:hover:not(:disabled) {
+  background: var(--bg-hover);
+}
+
+.run-check-btn:disabled {
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border-color: var(--border-subtle);
+  cursor: not-allowed;
+}
+
+.run-check-btn--loading {
+  cursor: not-allowed;
+}

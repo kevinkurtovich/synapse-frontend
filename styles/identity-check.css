@@ -1,0 +1,31 @@
+/* Identity Check Result page layout — all values via var(--token) */
+
+.identity-check-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--s-6) var(--s-5);
+}
+
+.identity-check-page__loading {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: var(--s-8) 0;
+  text-align: center;
+}
+
+.identity-check-page__error {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--danger);
+  padding: var(--s-8) 0;
+  text-align: center;
+}
+
+.identity-check-page__error-link {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  display: block;
+  margin-top: var(--s-4);
+}
