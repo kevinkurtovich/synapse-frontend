@@ -167,3 +167,35 @@
   min-height: 80px;
   line-height: 1.6;
 }
+
+/* ============================================================
+   AuthStatusMessage atom (FEAT-0008)
+   ============================================================ */
+
+.auth-status {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.auth-status--loading {
+  color: var(--text-secondary);
+}
+
+@keyframes auth-status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.auth-status--loading {
+  animation: auth-status-pulse 1.4s ease-in-out infinite;
+}
+
+.auth-status--success {
+  color: var(--ok);
+}
+
+.auth-status--error {
+  color: var(--danger);
+}
