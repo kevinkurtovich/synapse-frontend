@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import '@/styles/snapshot.css';
 
 import SnapshotDetail from '@/components/organisms/SnapshotDetail';
+import ExportPanel from '@/components/organisms/ExportPanel';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
@@ -47,6 +48,7 @@ export default function SnapshotPage({
   const [validationStatus, setValidationStatus] = useState<'PASS' | 'FAIL' | 'NO_RUNS'>('NO_RUNS');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [exportOpen, setExportOpen] = useState(false);
 
   const load = useCallback(async () => {
     try {
@@ -123,6 +125,15 @@ export default function SnapshotPage({
     router.push(`/snapshots/${id}/check?profile_id=${profileId}`);
   };
 
+  const exportProfiles = profiles.map((p) => ({
+    id: p.id,
+    provider: p.provider,
+    model_name: p.model_name,
+    calibration_score: p.score ?? 0,
+    status: p.status,
+    runtime_prompt: null as string | null,
+  }));
+
   return (
     <div className="snapshot-page">
       <SnapshotDetail
@@ -133,6 +144,20 @@ export default function SnapshotPage({
         profiles={profiles}
         onRunCheck={handleRunCheck}
       />
+
+      <div className="snapshot-page__export-actions">
+        <button className="export-btn" onClick={() => setExportOpen(!exportOpen)}>
+          Export
+        </button>
+      </div>
+
+      {exportOpen && (
+        <ExportPanel
+          snapshot={snapshot}
+          profiles={exportProfiles}
+          onClose={() => setExportOpen(false)}
+        />
+      )}
     </div>
   );
 }

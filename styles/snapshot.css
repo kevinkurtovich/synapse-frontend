@@ -21,3 +21,7 @@
   padding: var(--s-8) 0;
   text-align: center;
 }
+
+.snapshot-page__export-actions {
+  margin-top: var(--s-4);
+}
