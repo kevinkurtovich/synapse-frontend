@@ -120,3 +120,50 @@
 .export-btn:hover {
   background: var(--bg-hover);
 }
+
+/* ============================================================
+   FormField atom (FEAT-0007)
+   ============================================================ */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.form-field__label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.form-field__required {
+  color: var(--accent);
+}
+
+.form-field__input,
+.form-field__textarea {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-sm);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  padding: var(--s-2) var(--s-4);
+  width: 100%;
+  transition: border-color 0.15s ease;
+}
+
+.form-field__input:focus,
+.form-field__textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-field__textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.6;
+}

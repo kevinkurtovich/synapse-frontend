@@ -160,3 +160,56 @@
   display: flex;
   justify-content: flex-end;
 }
+
+/* ============================================================
+   CreateSnapshotForm organism (FEAT-0007)
+   ============================================================ */
+
+.create-snapshot-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  max-width: 600px;
+}
+
+.create-snapshot-form__error {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--danger);
+}
+
+.create-snapshot-form__submit {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: var(--accent);
+  color: var(--bg-base);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: var(--s-2) var(--s-5);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: opacity 0.15s ease;
+  align-self: flex-start;
+}
+
+.create-snapshot-form__submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ============================================================
+   NewSnapshotPage layout (FEAT-0007)
+   ============================================================ */
+
+.new-snapshot-page {
+  padding: var(--s-6);
+  max-width: 720px;
+}
+
+.new-snapshot-page__title {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: var(--s-6);
+  font-weight: 500;
+}
