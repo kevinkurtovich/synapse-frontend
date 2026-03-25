@@ -309,7 +309,7 @@ export default function PersonaRoomPage({
 
       {exportOpen && snapshot && (
         <ExportPanel
-          snapshot={{ ...snapshot, persona_name: persona.name, persona_id: persona.id, version_number: 1, parent_snapshot_id: null }}
+          snapshot={snapshot}
           profiles={exportProfiles}
           onClose={() => setExportOpen(false)}
         />
