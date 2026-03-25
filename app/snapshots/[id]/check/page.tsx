@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import '@/styles/identity-check.css';
 
 import IdentityCheckResult from '@/components/organisms/IdentityCheckResult';
+import { getSupabase } from '@/lib/supabase';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
@@ -52,8 +53,19 @@ export default function CheckPage({
 
     async function triggerValidation() {
       try {
+        const { data: sessionData } = await getSupabase().auth.getSession();
+        const token = sessionData.session?.access_token;
+        if (!token) {
+          setError('Session expired');
+          return;
+        }
+
         const res = await fetch(`${API_URL}/validations/${profileId}/validate`, {
           method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
         });
 
         if (!res.ok) {

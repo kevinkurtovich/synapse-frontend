@@ -86,7 +86,7 @@ export function Dashboard() {
               ))}
             </div>
             <Link href="/create/manual" className="dashboard__cta">
-              Upload your first personality
+              New companion
             </Link>
           </>
         )}

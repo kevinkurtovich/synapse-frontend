@@ -32,7 +32,7 @@ type Profile = {
   provider: string;
   model_name: string;
   status: string;
-  score: number | null;
+  calibration_score: number | null;
   created_at: string;
 };
 
@@ -78,7 +78,7 @@ export default function SnapshotPage({
       }
 
       const snapData: Snapshot = await snapRes.json();
-      const profilesData: Profile[] = await profilesRes.json();
+      const profilesData: Profile[] = profilesRes.ok ? await profilesRes.json() : [];
 
       setSnapshot(snapData);
       setProfiles(profilesData);
@@ -175,7 +175,7 @@ export default function SnapshotPage({
     id: p.id,
     provider: p.provider,
     model_name: p.model_name,
-    calibration_score: p.score ?? 0,
+    calibration_score: p.calibration_score ?? 0,
     status: p.status,
     runtime_prompt: null as string | null,
   }));

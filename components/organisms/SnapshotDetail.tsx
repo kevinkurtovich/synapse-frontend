@@ -92,7 +92,7 @@ export default function SnapshotDetail({
           disabled={!activeProfileId}
           loading={false}
         />
-        {profiles.length === 0 && onCalibrate && (
+        {activeProfiles.length === 0 && onCalibrate && (
           <>
             <button
               className="calibrate-btn"
