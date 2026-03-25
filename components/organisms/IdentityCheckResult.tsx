@@ -20,7 +20,7 @@ type IdentityCheckResultProps = {
     response: string;
     passed: boolean;
   }>;
-  snapshotId: string;
+  personaId: string;
   state: 'running' | 'complete';
   runningProbeIndex: number;
 };
@@ -30,7 +30,7 @@ const PROBE_ORDER = ['companion_name', 'user_recognition', 'relationship_framing
 export default function IdentityCheckResult({
   run,
   probeResults,
-  snapshotId,
+  personaId,
   state,
   runningProbeIndex,
 }: IdentityCheckResultProps) {
@@ -53,8 +53,8 @@ export default function IdentityCheckResult({
 
   return (
     <div className="identity-check-result">
-      <a href={`/snapshots/${snapshotId}`} className="identity-check-result__back">
-        &larr; Snapshot
+      <a href={`/personas/${personaId}`} className="identity-check-result__back">
+        &larr; Back
       </a>
 
       {state === 'complete' && run.verdict && (

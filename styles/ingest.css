@@ -1,0 +1,30 @@
+/* Transcript Ingestion page */
+
+.ingest-page {
+  padding: var(--s-6);
+  max-width: 640px;
+}
+
+.ingest-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.ingest-page__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.ingest-page__error {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--danger);
+}
+
+.ingest-page__status {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}

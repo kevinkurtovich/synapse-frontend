@@ -1,0 +1,53 @@
+/* PersonaRoom — layout and personality accent styles */
+
+.persona-room {
+  padding: var(--s-6);
+  max-width: 720px;
+}
+
+.persona-room__loading,
+.persona-room__error {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: var(--s-6) 0;
+}
+
+.persona-room__identity-header {
+  margin-bottom: var(--s-5);
+}
+
+.persona-room__name {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--s-3) 0;
+}
+
+.persona-room__summary {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--warm-accent);
+  background: var(--warm-base);
+  border: 1px solid var(--warm-accent-border);
+  border-radius: var(--r-lg);
+  padding: var(--s-4);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.persona-room__no-snapshot {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.persona-room__calibrating {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: var(--s-2);
+}

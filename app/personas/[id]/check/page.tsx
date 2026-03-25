@@ -30,7 +30,7 @@ export default function CheckPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id: snapshotId } = use(params);
+  const { id: personaId } = use(params);
   const router = useRouter();
   const searchParams = useSearchParams();
   const profileId = searchParams.get('profile_id');
@@ -44,7 +44,7 @@ export default function CheckPage({
 
   useEffect(() => {
     if (!profileId) {
-      router.push(`/snapshots/${snapshotId}`);
+      router.push(`/personas/${personaId}`);
       return;
     }
 
@@ -73,9 +73,7 @@ export default function CheckPage({
           if (res.status === 404) {
             setError('Restoration profile not found.');
           } else if (res.status === 502) {
-            setError(
-              'Validation could not complete. The language model returned an error.'
-            );
+            setError('Validation could not complete. The language model returned an error.');
           } else {
             setError(body.error || 'An unexpected error occurred.');
           }
@@ -89,7 +87,6 @@ export default function CheckPage({
         setRun(validationRun);
         setProbeResults(probes);
 
-        // Staggered reveal: 300ms per row
         for (let i = 0; i <= probes.length; i++) {
           await new Promise((resolve) => setTimeout(resolve, i === 0 ? 0 : 300));
           setRunningProbeIndex(i);
@@ -102,14 +99,14 @@ export default function CheckPage({
     }
 
     triggerValidation();
-  }, [profileId, snapshotId]);
+  }, [profileId, personaId]);
 
   if (error) {
     return (
       <div className="identity-check-page">
         <div className="identity-check-page__error">{error}</div>
-        <a href={`/personas/${snapshotId}`} className="identity-check-page__error-link">
-          &larr; Back to snapshot
+        <a href={`/personas/${personaId}`} className="identity-check-page__error-link">
+          &larr; Back
         </a>
       </div>
     );
@@ -129,7 +126,7 @@ export default function CheckPage({
       <IdentityCheckResult
         run={displayRun}
         probeResults={probeResults}
-        personaId={snapshotId}
+        personaId={personaId}
         state={state}
         runningProbeIndex={runningProbeIndex}
       />
