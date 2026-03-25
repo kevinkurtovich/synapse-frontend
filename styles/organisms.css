@@ -213,3 +213,157 @@
   margin-bottom: var(--s-6);
   font-weight: 500;
 }
+
+/* ─── Snapshot Directive Flow Panel ─────────────────────────────────── */
+.snapshot-flow {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  margin-bottom: var(--s-4);
+}
+
+.snapshot-flow__step-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--s-1);
+}
+
+.snapshot-flow__message {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  margin-bottom: var(--s-3);
+  line-height: 1.5;
+}
+
+.snapshot-flow__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.snapshot-flow__hint {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.snapshot-flow__cta {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--bg-base);
+  background: var(--brand);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: var(--s-2) var(--s-4);
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.snapshot-flow__cta:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.snapshot-flow__cta:not(:disabled):hover {
+  opacity: 0.88;
+}
+
+.snapshot-flow__cta--secondary {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+.snapshot-flow__cta--secondary:not(:disabled):hover {
+  background: rgba(0, 208, 255, 0.08);
+  opacity: 1;
+}
+
+.snapshot-flow__verdict--pass {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--ok);
+}
+
+.snapshot-flow__verdict--fail {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--danger);
+}
+
+.snapshot-flow__score {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.snapshot-flow__error {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--danger);
+  margin-top: var(--s-1);
+  width: 100%;
+}
+
+/* ─── Restoration Profiles Section ──────────────────────────────────── */
+.snapshot-profiles {
+  margin-bottom: var(--s-4);
+}
+
+.snapshot-profiles__title {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--s-2);
+}
+
+.snapshot-profile-card {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  background: var(--bg-elevated);
+  border-radius: var(--r-sm);
+  padding: var(--s-2) var(--s-3);
+  margin-bottom: var(--s-1);
+}
+
+.snapshot-profile-card__name {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.snapshot-profile-card__status--active {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ok);
+}
+
+.snapshot-profile-card__status--failed {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--danger);
+}
+
+.snapshot-profile-card__status--retired {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.snapshot-profile-card__score {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}

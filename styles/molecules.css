@@ -476,3 +476,170 @@
   font-size: 12px;
   color: var(--text-muted);
 }
+
+/* ─── TestList Molecule ──────────────────────────────────────────────── */
+.test-list {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  margin-bottom: var(--s-4);
+}
+
+.test-list__header {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-bottom: var(--s-3);
+}
+
+.test-list__title {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.test-list__count {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.test-list__add-btn {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--brand);
+  background: transparent;
+  border: 1px solid var(--brand);
+  border-radius: var(--r-sm);
+  padding: var(--s-1) var(--s-2);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.test-list__add-btn:hover {
+  background: rgba(0, 208, 255, 0.08);
+}
+
+.test-list__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.test-item {
+  background: var(--bg-elevated);
+  border-radius: var(--r-sm);
+  padding: var(--s-2) var(--s-3);
+}
+
+.test-item__prompt {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  margin: 0 0 var(--s-1);
+  line-height: 1.5;
+}
+
+.test-item__expected {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--ok);
+  margin: 0 0 var(--s-1);
+}
+
+.test-item__forbidden {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--danger);
+  margin: 0;
+}
+
+/* ─── TestList Form ──────────────────────────────────────────────────── */
+.test-form {
+  margin-bottom: var(--s-3);
+}
+
+.test-form__field {
+  margin-bottom: var(--s-2);
+}
+
+.test-form__label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--s-1);
+}
+
+.test-form__textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
+  border-radius: var(--r-sm);
+  padding: var(--s-2);
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.test-form__textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+
+.test-form__error {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--danger);
+  margin-bottom: var(--s-2);
+}
+
+.test-form__actions {
+  display: flex;
+  gap: var(--s-2);
+}
+
+.test-form__submit {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--bg-base);
+  background: var(--brand);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: var(--s-2) var(--s-4);
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.test-form__submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.test-form__submit:not(:disabled):hover {
+  opacity: 0.88;
+}
+
+.test-form__cancel {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
+  border-radius: var(--r-sm);
+  padding: var(--s-2) var(--s-3);
+  cursor: pointer;
+}
+
+.test-form__cancel:hover {
+  color: var(--text-primary);
+}
