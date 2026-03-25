@@ -6,6 +6,7 @@ import '@/styles/snapshot.css';
 
 import SnapshotDetail from '@/components/organisms/SnapshotDetail';
 import ExportPanel from '@/components/organisms/ExportPanel';
+import { getSupabase } from '@/lib/supabase';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
@@ -49,12 +50,25 @@ export default function SnapshotPage({
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [exportOpen, setExportOpen] = useState(false);
+  const [calibrating, setCalibrating] = useState(false);
+  const [calibrationError, setCalibrationError] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     try {
+      const { data: sessionData } = await getSupabase().auth.getSession();
+      const token = sessionData.session?.access_token;
+
+      if (!token) {
+        setError('Session expired');
+        setLoading(false);
+        return;
+      }
+
+      const headers = { Authorization: `Bearer ${token}` };
+
       const [snapRes, profilesRes] = await Promise.all([
-        fetch(`${API_URL}/snapshots/${id}`),
-        fetch(`${API_URL}/snapshots/${id}/profiles`),
+        fetch(`${API_URL}/snapshots/${id}`, { headers }),
+        fetch(`${API_URL}/snapshots/${id}/profiles`, { headers }),
       ]);
 
       if (!snapRes.ok) {
@@ -77,7 +91,8 @@ export default function SnapshotPage({
       if (activeProfiles.length > 0) {
         const activeId = activeProfiles[0].id;
         const valRes = await fetch(
-          `${API_URL}/validations/runs?restoration_profile_id=${activeId}&limit=1`
+          `${API_URL}/validations/runs?restoration_profile_id=${activeId}&limit=1`,
+          { headers }
         );
         if (valRes.ok) {
           const valData = await valRes.json();
@@ -121,6 +136,37 @@ export default function SnapshotPage({
   const activeProfileId = activeProfiles.length > 0 ? activeProfiles[0].id : null;
   const multipleActiveProfiles = activeProfiles.length > 1;
 
+  const handleCalibrate = async () => {
+    setCalibrating(true);
+    setCalibrationError(null);
+    try {
+      const { data: sessionData } = await getSupabase().auth.getSession();
+      const token = sessionData.session?.access_token;
+      if (!token) {
+        setCalibrationError('Session expired');
+        return;
+      }
+      const res = await fetch(`${API_URL}/snapshots/${id}/calibrate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ provider: 'openai', model_name: 'gpt-4o' }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({ error: 'Calibration failed' }));
+        setCalibrationError(body.error || 'Calibration failed');
+        return;
+      }
+      await load();
+    } catch (err: any) {
+      setCalibrationError(err.message || 'Calibration failed');
+    } finally {
+      setCalibrating(false);
+    }
+  };
+
   const handleRunCheck = (profileId: string) => {
     router.push(`/snapshots/${id}/check?profile_id=${profileId}`);
   };
@@ -143,6 +189,9 @@ export default function SnapshotPage({
         multipleActiveProfiles={multipleActiveProfiles}
         profiles={profiles}
         onRunCheck={handleRunCheck}
+        onCalibrate={handleCalibrate}
+        calibrating={calibrating}
+        calibrationError={calibrationError}
       />
 
       <div className="snapshot-page__export-actions">

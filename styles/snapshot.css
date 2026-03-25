@@ -25,3 +25,35 @@
 .snapshot-page__export-actions {
   margin-top: var(--s-4);
 }
+
+.calibrate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-default);
+  background: var(--bg-raised);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.calibrate-btn:hover {
+  background: var(--bg-hover);
+}
+
+.calibrate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.snapshot-detail__calibration-error {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--danger);
+  margin: 0;
+}

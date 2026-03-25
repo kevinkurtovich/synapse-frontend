@@ -27,13 +27,6 @@ type IdentityCheckResultProps = {
 
 const PROBE_ORDER = ['companion_name', 'user_recognition', 'relationship_framing'];
 
-const PLACEHOLDER_PROBES = PROBE_ORDER.map((label) => ({
-  label,
-  prompt: '',
-  response: '',
-  passed: false,
-}));
-
 export default function IdentityCheckResult({
   run,
   probeResults,
@@ -41,15 +34,15 @@ export default function IdentityCheckResult({
   state,
   runningProbeIndex,
 }: IdentityCheckResultProps) {
-  const probes = state === 'running' && probeResults.length === 0
-    ? PLACEHOLDER_PROBES
-    : probeResults;
+  const hasProbes = probeResults.length > 0;
 
-  const sortedProbes = [...probes].sort((a, b) => {
-    const ai = PROBE_ORDER.indexOf(a.label);
-    const bi = PROBE_ORDER.indexOf(b.label);
-    return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
-  });
+  const sortedProbes = hasProbes
+    ? [...probeResults].sort((a, b) => {
+        const ai = PROBE_ORDER.indexOf(a.label);
+        const bi = PROBE_ORDER.indexOf(b.label);
+        return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+      })
+    : [];
 
   function getProbeState(index: number): 'pending' | 'running' | 'complete' {
     if (state === 'complete') return 'complete';
@@ -64,29 +57,35 @@ export default function IdentityCheckResult({
         &larr; Snapshot
       </a>
 
-      {(state === 'complete' || run.verdict) && (
+      {state === 'complete' && run.verdict && (
         <VerdictSignal verdict={run.verdict} />
       )}
 
-      <div className="identity-check-result__meta">
-        <span>{run.created_at ? new Date(run.created_at).toLocaleString() : ''}</span>
-        <span>{run.passed_count}/{run.total_count} probes passed</span>
-      </div>
+      {state === 'complete' && (
+        <div className="identity-check-result__meta">
+          <span>{run.created_at ? new Date(run.created_at).toLocaleString() : ''}</span>
+          <span>{run.passed_count}/{run.total_count} probes passed</span>
+        </div>
+      )}
 
       <h4 className="identity-check-result__probes-header">Probe Results</h4>
 
-      <div className="identity-check-result__probes">
-        {sortedProbes.map((probe, i) => (
-          <ProbeResultRow
-            key={probe.label}
-            label={probe.label}
-            prompt={probe.prompt}
-            response={probe.response}
-            passed={probe.passed}
-            state={getProbeState(i)}
-          />
-        ))}
-      </div>
+      {hasProbes ? (
+        <div className="identity-check-result__probes">
+          {sortedProbes.map((probe, i) => (
+            <ProbeResultRow
+              key={probe.label}
+              label={probe.label}
+              prompt={probe.prompt}
+              response={probe.response}
+              passed={probe.passed}
+              state={getProbeState(i)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="identity-check-result__probes" />
+      )}
     </div>
   );
 }

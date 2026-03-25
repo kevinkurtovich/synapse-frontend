@@ -1,7 +1,7 @@
 'use client';
 
 import { use, useEffect, useState, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import '@/styles/identity-check.css';
 
 import IdentityCheckResult from '@/components/organisms/IdentityCheckResult';
@@ -30,6 +30,7 @@ export default function CheckPage({
   params: Promise<{ id: string }>;
 }) {
   const { id: snapshotId } = use(params);
+  const router = useRouter();
   const searchParams = useSearchParams();
   const profileId = searchParams.get('profile_id');
 
@@ -42,7 +43,7 @@ export default function CheckPage({
 
   useEffect(() => {
     if (!profileId) {
-      window.location.href = `/snapshots/${snapshotId}`;
+      router.push(`/snapshots/${snapshotId}`);
       return;
     }
 

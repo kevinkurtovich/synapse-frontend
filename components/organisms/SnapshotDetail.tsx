@@ -33,6 +33,9 @@ type SnapshotDetailProps = {
   multipleActiveProfiles: boolean;
   profiles: Array<{ id: string; provider: string; model_name: string; status: string }>;
   onRunCheck: (profileId: string) => void;
+  onCalibrate?: () => void;
+  calibrating?: boolean;
+  calibrationError?: string | null;
 };
 
 export default function SnapshotDetail({
@@ -42,6 +45,9 @@ export default function SnapshotDetail({
   multipleActiveProfiles,
   profiles,
   onRunCheck,
+  onCalibrate,
+  calibrating = false,
+  calibrationError = null,
 }: SnapshotDetailProps) {
   const activeProfiles = profiles.filter((p) => p.status === 'active');
   const [selectedProfileId, setSelectedProfileId] = useState<string>(
@@ -86,6 +92,20 @@ export default function SnapshotDetail({
           disabled={!activeProfileId}
           loading={false}
         />
+        {profiles.length === 0 && onCalibrate && (
+          <>
+            <button
+              className="calibrate-btn"
+              onClick={onCalibrate}
+              disabled={calibrating}
+            >
+              {calibrating ? 'Calibrating...' : 'Calibrate'}
+            </button>
+            {calibrationError && (
+              <p className="snapshot-detail__calibration-error">{calibrationError}</p>
+            )}
+          </>
+        )}
       </div>
 
       {/* 3. Memory Context — first-class, above traits */}
