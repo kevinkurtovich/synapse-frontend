@@ -7,11 +7,9 @@ type CopyButtonProps = {
 };
 
 export default function CopyButton({ copied, onClick, disabled }: CopyButtonProps) {
-  const className = disabled
-    ? 'copy-btn copy-btn--disabled'
-    : copied
-      ? 'copy-btn copy-btn--copied'
-      : 'copy-btn';
+  const className = copied
+    ? 'btn btn-default copy-btn--copied'
+    : 'btn btn-default';
 
   return (
     <button className={className} onClick={onClick} disabled={disabled}>

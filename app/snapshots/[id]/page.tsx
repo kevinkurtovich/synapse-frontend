@@ -304,7 +304,7 @@ export default function SnapshotPage({
       />
 
       <div className="snapshot-page__export-actions">
-        <button className="export-btn" onClick={() => setExportOpen(!exportOpen)}>
+        <button className="btn btn-default" onClick={() => setExportOpen(!exportOpen)}>
           Export
         </button>
       </div>

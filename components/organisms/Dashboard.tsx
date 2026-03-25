@@ -56,7 +56,7 @@ export function Dashboard() {
   return (
     <div className="dashboard">
       <section className="dashboard__companions">
-        <h2 className="dashboard__companions-title">Companions</h2>
+        <h2 className="sub-label">Companions</h2>
 
         {loading && (
           <p className="dashboard__loading-message">Loading...</p>
@@ -64,10 +64,11 @@ export function Dashboard() {
 
         {!loading && (error !== null || snapshots.length === 0) && (
           <>
-            <p className="dashboard__empty-message">
-              No companions yet. Create one to get started.
-            </p>
-            <Link href="/create/manual" className="dashboard__cta">
+            <div className="empty-state">
+              <p className="empty-state-title">No companions yet</p>
+              <p className="empty-state-msg">Create one to get started</p>
+            </div>
+            <Link href="/create/manual" className="btn btn-brand">
               Upload your first personality
             </Link>
           </>
@@ -85,7 +86,7 @@ export function Dashboard() {
                 />
               ))}
             </div>
-            <Link href="/create/manual" className="dashboard__cta">
+            <Link href="/create/manual" className="btn btn-brand">
               New companion
             </Link>
           </>

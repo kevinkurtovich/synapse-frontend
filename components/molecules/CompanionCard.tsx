@@ -15,9 +15,16 @@ export default function CompanionCard({ id, name, created_at }: CompanionCardPro
   });
 
   return (
-    <Link href={`/snapshots/${id}`} className="companion-card">
-      <p className="companion-card__name">{name}</p>
-      <p className="companion-card__date">{formatted}</p>
+    <Link className="companion-card card" href={`/snapshots/${id}`}>
+      <div className="card-hd">
+        <div>
+          <div className="breadcrumb">
+            <span className="bc-active">{name}</span>
+          </div>
+          <div className="card-title">{name || 'Unnamed'}</div>
+          <div className="card-subtitle">{formatted}</div>
+        </div>
+      </div>
     </Link>
   );
 }

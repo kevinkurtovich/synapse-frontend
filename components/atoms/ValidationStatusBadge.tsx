@@ -11,9 +11,9 @@ const LABEL_MAP: Record<ValidationStatusBadgeProps['status'], string> = {
 };
 
 const CLASS_MAP: Record<ValidationStatusBadgeProps['status'], string> = {
-  PASS: 'validation-badge validation-badge--pass',
-  FAIL: 'validation-badge validation-badge--fail',
-  NO_RUNS: 'validation-badge validation-badge--no-runs',
+  PASS: 'badge badge-ok',
+  FAIL: 'badge badge-failed',
+  NO_RUNS: 'badge badge-muted',
 };
 
 export default function ValidationStatusBadge({ status }: ValidationStatusBadgeProps) {

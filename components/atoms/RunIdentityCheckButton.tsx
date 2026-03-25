@@ -11,16 +11,9 @@ export default function RunIdentityCheckButton({
   disabled,
   loading,
 }: RunIdentityCheckButtonProps) {
-  const className = [
-    'run-check-btn',
-    loading ? 'run-check-btn--loading' : '',
-  ]
-    .filter(Boolean)
-    .join(' ');
-
   return (
     <button
-      className={className}
+      className="btn btn-brand"
       onClick={onClick}
       disabled={disabled || loading}
     >
