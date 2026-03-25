@@ -178,25 +178,6 @@
   color: var(--danger);
 }
 
-.create-snapshot-form__submit {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  background: var(--accent);
-  color: var(--bg-base);
-  border: none;
-  border-radius: var(--r-sm);
-  padding: var(--s-2) var(--s-5);
-  cursor: pointer;
-  letter-spacing: 0.04em;
-  transition: opacity 0.15s ease;
-  align-self: flex-start;
-}
-
-.create-snapshot-form__submit:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
 /* ============================================================
    NewSnapshotPage layout (FEAT-0007)
    ============================================================ */
@@ -218,7 +199,7 @@
 .snapshot-flow {
   background: var(--bg-raised);
   border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
-  border-radius: var(--r-md);
+  border-radius: var(--r-lg);
   padding: var(--s-4);
   margin-bottom: var(--s-4);
 }
@@ -251,39 +232,6 @@
   font-family: var(--font-sans);
   font-size: 0.875rem;
   color: var(--text-secondary);
-}
-
-.snapshot-flow__cta {
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--bg-base);
-  background: var(--brand);
-  border: none;
-  border-radius: var(--r-sm);
-  padding: var(--s-2) var(--s-4);
-  cursor: pointer;
-  transition: opacity 0.15s;
-}
-
-.snapshot-flow__cta:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-.snapshot-flow__cta:not(:disabled):hover {
-  opacity: 0.88;
-}
-
-.snapshot-flow__cta--secondary {
-  background: transparent;
-  color: var(--brand);
-  border: 1px solid var(--brand);
-}
-
-.snapshot-flow__cta--secondary:not(:disabled):hover {
-  background: rgba(0, 208, 255, 0.08);
-  opacity: 1;
 }
 
 .snapshot-flow__verdict--pass {

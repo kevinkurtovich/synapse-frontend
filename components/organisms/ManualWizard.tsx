@@ -88,7 +88,7 @@ export function ManualWizard({ onCreated }: ManualWizardProps) {
           />
           <div className="wizard__nav">
             <button
-              className="wizard__nav-primary"
+              className="btn btn-brand"
               type="button"
               disabled={!companionName.trim()}
               onClick={() => setStep(2)}
@@ -116,14 +116,14 @@ export function ManualWizard({ onCreated }: ManualWizardProps) {
           />
           <div className="wizard__nav">
             <button
-              className="wizard__nav-back"
+              className="btn btn-default"
               type="button"
               onClick={() => setStep(1)}
             >
               Back
             </button>
             <button
-              className="wizard__nav-primary"
+              className="btn btn-brand"
               type="button"
               disabled={!memoryContext.trim()}
               onClick={() => setStep(3)}
@@ -150,7 +150,7 @@ export function ManualWizard({ onCreated }: ManualWizardProps) {
           {error && <p className="wizard__error">{error}</p>}
           <div className="wizard__nav">
             <button
-              className="wizard__nav-back"
+              className="btn btn-default"
               type="button"
               disabled={loading}
               onClick={() => setStep(2)}
@@ -158,7 +158,7 @@ export function ManualWizard({ onCreated }: ManualWizardProps) {
               Back
             </button>
             <button
-              className="wizard__nav-primary"
+              className="btn btn-brand"
               type="button"
               disabled={loading}
               onClick={handleSubmit}

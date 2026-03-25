@@ -144,7 +144,7 @@ export default function SnapshotDetail({
           {flowState === 'NO_PROFILE' && onCalibrate && (
             <>
               <button
-                className="snapshot-flow__cta"
+                className="btn btn-brand"
                 onClick={onCalibrate}
                 disabled={calibrating}
               >
@@ -172,7 +172,7 @@ export default function SnapshotDetail({
                 </select>
               )}
               <button
-                className="snapshot-flow__cta"
+                className="btn btn-brand"
                 onClick={onRunCheck}
                 disabled={!selectedProfileId}
               >
@@ -189,7 +189,7 @@ export default function SnapshotDetail({
                 {lastRun.verdict} — {lastRun.passed_count}/{lastRun.total_count} probes passed
               </div>
               <button
-                className="snapshot-flow__cta snapshot-flow__cta--secondary"
+                className="btn btn-default"
                 onClick={onRunCheck}
                 disabled={!selectedProfileId}
               >

@@ -42,7 +42,7 @@
 .wizard__summary-card {
   background: var(--bg-raised);
   border: 1px solid var(--border-default);
-  border-radius: var(--r-md);
+  border-radius: var(--r-lg);
   padding: var(--s-5);
   display: flex;
   flex-direction: column;
@@ -77,47 +77,6 @@
   display: flex;
   align-items: center;
   gap: var(--s-3);
-}
-
-.wizard__nav-primary {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  background: var(--accent);
-  color: var(--bg-base);
-  border: none;
-  border-radius: var(--r-sm);
-  padding: var(--s-2) var(--s-5);
-  cursor: pointer;
-  letter-spacing: 0.02em;
-  transition: opacity 0.15s ease;
-}
-
-.wizard__nav-primary:hover:not(:disabled) {
-  opacity: 0.85;
-}
-
-.wizard__nav-primary:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.wizard__nav-back {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 400;
-  background: none;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-default);
-  border-radius: var(--r-sm);
-  padding: var(--s-2) var(--s-5);
-  cursor: pointer;
-  transition: color 0.15s ease, background 0.15s ease;
-}
-
-.wizard__nav-back:hover {
-  color: var(--text-primary);
-  background: var(--bg-hover);
 }
 
 .wizard__error {

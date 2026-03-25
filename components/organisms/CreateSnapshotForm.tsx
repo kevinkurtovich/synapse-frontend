@@ -80,7 +80,7 @@ export function CreateSnapshotForm({ onCreated }: CreateSnapshotFormProps) {
       />
       {error && <p className="create-snapshot-form__error">{error}</p>}
       <button
-        className="create-snapshot-form__submit"
+        className="btn btn-brand"
         type="submit"
         disabled={loading || !canSubmit}
       >

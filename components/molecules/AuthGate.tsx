@@ -124,7 +124,7 @@ export function AuthGate({ children }: AuthGateProps) {
           </div>
           {status && <AuthStatusMessage type={status.type} message={status.message} />}
           <button
-            className="auth-gate__submit"
+            className="btn btn-brand"
             type="submit"
             disabled={loading || !email.trim()}
           >
@@ -156,14 +156,14 @@ export function AuthGate({ children }: AuthGateProps) {
           {status && <AuthStatusMessage type={status.type} message={status.message} />}
           <div className="auth-gate__actions">
             <button
-              className="auth-gate__submit"
+              className="btn btn-brand"
               type="submit"
               disabled={loading || !email.trim() || !password}
             >
               {loading ? 'Signing in...' : 'Sign in'}
             </button>
             <button
-              className="auth-gate__secondary"
+              className="btn btn-default"
               type="button"
               disabled={loading || !email.trim() || !password}
               onClick={handleSignUp}

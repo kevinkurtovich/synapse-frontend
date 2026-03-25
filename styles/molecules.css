@@ -4,7 +4,7 @@
 .identity-block {
   background: var(--bg-raised);
   border: 1px solid var(--border-default);
-  border-radius: var(--r-md);
+  border-radius: var(--r-lg);
   padding: var(--s-5);
 }
 
@@ -47,7 +47,7 @@
 .memory-context-block {
   background: var(--warm-base);
   border: 1px solid var(--warm-accent-border);
-  border-radius: var(--r-md);
+  border-radius: var(--r-lg);
   padding: var(--s-5);
 }
 
@@ -283,52 +283,10 @@
   color: var(--danger);
 }
 
-.auth-gate__submit {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  background: var(--accent);
-  color: var(--bg-base);
-  border: none;
-  border-radius: var(--r-sm);
-  padding: var(--s-2) var(--s-5);
-  cursor: pointer;
-  letter-spacing: 0.04em;
-  transition: opacity 0.15s ease;
-  align-self: flex-start;
-}
-
-.auth-gate__submit:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
 .auth-gate__actions {
   display: flex;
   gap: var(--s-3);
   align-items: center;
-}
-
-.auth-gate__secondary {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  background: none;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-default);
-  border-radius: var(--r-sm);
-  padding: var(--s-2) var(--s-5);
-  cursor: pointer;
-  letter-spacing: 0.04em;
-  transition: background 0.15s ease, color 0.15s ease;
-}
-
-.auth-gate__secondary:hover:not(:disabled) {
-  background: var(--bg-hover);
-  color: var(--text-primary);
-}
-
-.auth-gate__secondary:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
 }
 
 .auth-gate__toggle {
@@ -481,7 +439,7 @@
 .test-list {
   background: var(--bg-raised);
   border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
-  border-radius: var(--r-md);
+  border-radius: var(--r-lg);
   padding: var(--s-4);
   margin-bottom: var(--s-4);
 }
@@ -507,23 +465,6 @@
   font-size: 0.875rem;
   color: var(--text-muted);
   flex: 1;
-}
-
-.test-list__add-btn {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--brand);
-  background: transparent;
-  border: 1px solid var(--brand);
-  border-radius: var(--r-sm);
-  padding: var(--s-1) var(--s-2);
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.test-list__add-btn:hover {
-  background: rgba(0, 208, 255, 0.08);
 }
 
 .test-list__items {
@@ -607,39 +548,3 @@
   gap: var(--s-2);
 }
 
-.test-form__submit {
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--bg-base);
-  background: var(--brand);
-  border: none;
-  border-radius: var(--r-sm);
-  padding: var(--s-2) var(--s-4);
-  cursor: pointer;
-  transition: opacity 0.15s;
-}
-
-.test-form__submit:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-.test-form__submit:not(:disabled):hover {
-  opacity: 0.88;
-}
-
-.test-form__cancel {
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-  background: transparent;
-  border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
-  border-radius: var(--r-sm);
-  padding: var(--s-2) var(--s-3);
-  cursor: pointer;
-}
-
-.test-form__cancel:hover {
-  color: var(--text-primary);
-}

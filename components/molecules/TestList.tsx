@@ -56,7 +56,7 @@ export default function TestList({
         <span className="test-list__count">{tests.length}</span>
         {!formOpen && (
           <button
-            className="test-list__add-btn"
+            className="btn btn-brand"
             onClick={() => setFormOpen(true)}
             type="button"
           >
@@ -103,14 +103,14 @@ export default function TestList({
           )}
           <div className="test-form__actions">
             <button
-              className="test-form__submit"
+              className="btn btn-brand"
               type="submit"
               disabled={addingTest || !prompt.trim()}
             >
               {addingTest ? 'Adding...' : 'Add Test'}
             </button>
             <button
-              className="test-form__cancel"
+              className="btn btn-default"
               type="button"
               onClick={handleCancel}
               disabled={addingTest}
