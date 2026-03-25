@@ -1,0 +1,31 @@
+/* ============================================================
+   CompanionCard molecule (BUG-0002)
+   ============================================================ */
+
+.companion-card {
+  display: block;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.companion-card:hover {
+  background: var(--bg-hover);
+}
+
+.companion-card__name {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.companion-card__date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: var(--s-2) 0 0;
+}

@@ -60,3 +60,17 @@
 .dashboard__cta:hover {
   opacity: 0.85;
 }
+
+.dashboard__companions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--s-4);
+  width: 100%;
+}
+
+.dashboard__loading-message {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: var(--s-6) 0;
+}
