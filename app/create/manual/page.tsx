@@ -26,6 +26,7 @@ export default function IngestPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (state !== 'idle') return;
     if (!name.trim() || !transcript.trim()) return;
 
     setError(null);
@@ -78,6 +79,7 @@ export default function IngestPage() {
   }
 
   async function handleConfirmPreview() {
+    if (state !== 'previewing') return;
     await distill(parsedTurns);
   }
 
@@ -190,10 +192,20 @@ export default function IngestPage() {
           </div>
 
           <div className="ingest-preview__actions">
-            <button className="btn btn-brand" type="button" onClick={handleConfirmPreview}>
+            <button
+              className="btn btn-brand"
+              type="button"
+              onClick={handleConfirmPreview}
+              disabled={state !== 'previewing'}
+            >
               Looks right — preserve identity
             </button>
-            <button className="btn btn-default" type="button" onClick={handleEditTranscript}>
+            <button
+              className="btn btn-default"
+              type="button"
+              onClick={handleEditTranscript}
+              disabled={state !== 'previewing'}
+            >
               Edit transcript
             </button>
           </div>
