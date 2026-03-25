@@ -28,3 +28,56 @@
   font-size: 12px;
   color: var(--text-secondary);
 }
+
+/* ============================================================
+   Preview Panel — FEAT-0015
+   Organism: composed from .card, .badge, .btn, .sub-label, .kv-lbl
+   All values via tokens. No inline styles. No new tokens.
+   ============================================================ */
+
+.ingest-preview__note {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  margin-bottom: var(--s-4);
+}
+
+.ingest-preview__turns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  max-height: 360px;
+  overflow-y: auto;
+  margin-bottom: var(--s-4);
+  padding: var(--s-3);
+  background: var(--bg-elevated);
+  border-radius: var(--r-md);
+}
+
+.ingest-preview__turn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.ingest-preview__speaker {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ingest-preview__text {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+.ingest-preview__actions {
+  display: flex;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+}
