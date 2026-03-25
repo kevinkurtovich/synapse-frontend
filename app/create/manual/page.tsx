@@ -97,6 +97,8 @@ export default function IngestPage() {
     setError(null);
     setStatus('Creating persona...');
 
+    let createdPersonaId: string | null = null;
+
     try {
       const { data: sessionData } = await getSupabase().auth.getSession();
       const token = sessionData.session?.access_token;
@@ -124,6 +126,7 @@ export default function IngestPage() {
       }
 
       const persona = await personaRes.json();
+      createdPersonaId = persona.id;
 
       // Step 2: Distill — send pre-parsed turns to skip re-parsing
       setStatus('Reconstructing identity... This may take a moment.');
@@ -131,7 +134,7 @@ export default function IngestPage() {
       const distillRes = await fetch(`${API_URL}/personas/${persona.id}/distill`, {
         method: 'POST',
         headers,
-        body: JSON.stringify({ turns }),
+        body: JSON.stringify({ transcript: transcript.trim(), turns }),
       });
 
       if (!distillRes.ok) {
@@ -143,6 +146,21 @@ export default function IngestPage() {
       setStatus('Identity reconstructed. Redirecting...');
       router.push(`/personas/${persona.id}`);
     } catch (err: any) {
+      // Clean up orphaned persona if distillation failed (BUG-0009)
+      if (createdPersonaId) {
+        try {
+          const { data: sessionData } = await getSupabase().auth.getSession();
+          const token = sessionData.session?.access_token;
+          if (token) {
+            await fetch(`${API_URL}/personas/${createdPersonaId}`, {
+              method: 'DELETE',
+              headers: { Authorization: `Bearer ${token}` },
+            });
+          }
+        } catch {
+          // Orphan cleanup is best-effort — don't mask the original error
+        }
+      }
       setError(err.message || 'An error occurred');
       setStatus(null);
       setState('idle');
